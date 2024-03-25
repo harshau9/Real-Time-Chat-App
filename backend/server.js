@@ -5,11 +5,16 @@ const userRoutes = require("./routes/userRoutes")
 const chatRoutes = require("./routes/chatRoutes")
 const messageRoutes = require("./routes/messageRoutes")
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware")
+const cors=require("cors");
 const path = require("path");
 
 dotenv.config()
 connectDB()
 const app =express();
+
+app.use(cors({
+  origin:"*"
+}))
 app.use(express.json());
 const PORT  = process.env.PORT || 5000;
 
